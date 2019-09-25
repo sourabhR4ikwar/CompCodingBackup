@@ -20,18 +20,42 @@ int main(){
 				break;
 			}
 			else if(x == y){
+				if(a>b){
+					a++;
+					break;
+				}else{
+					b++;
+					break;
+				}
 				
 			}
 			else{
 				if(c[x]>0){
-					if( 0 <= c[x] - rate){
+					if( 0 < c[x] - rate){
 						c[x] = c[x] - rate;
 					}else{
-						
+						c[x+1] = c[x+1] - (rate - c[x]);
+						x++;
+						a++;
 					}
 				}else{
 					a++;
+					x++;
 				}
+				
+				if(c[y]>0){
+					if( 0 < c[y] - 1){
+						c[y] = c[y] - 1;
+					}else{
+						c[y] = c[y] - 1;
+						y--;
+						b++;
+					}
+				}else{
+					b++;
+					y--;
+				}
+				
 			}
 		}
 //		cout << "N : "<<n<<endl;
